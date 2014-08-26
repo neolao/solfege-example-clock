@@ -1,0 +1,19 @@
+{
+    "name"          : "solfegejs-example-clock",
+    "description"   : "A simple clock displayed on the terminal",
+    "version"       : "0.1.0",
+    "author"        : "neolao <contact@neolao.com>",
+    "repository"    : "https://github.com/neolao/solfege-example-clock.git",
+    "engines"       : 
+    {
+        "node": ">= 0.11.11"
+    },
+    "dependencies"  : 
+    {
+        "solfegejs"     : "1.3.*",
+        "charm"         : "0.2.0"
+    },
+    "scripts": {
+        "start": "node --harmony main.js"
+    }
+}
