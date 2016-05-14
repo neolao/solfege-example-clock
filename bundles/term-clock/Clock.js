@@ -1,20 +1,21 @@
-var solfege = require('solfegejs');
+const solfege = require("solfegejs");
+const GeneratorUtil = require("solfegejs/lib/utils/GeneratorUtil");
 
 /**
  * The class that display a clock
  */
-var Clock = solfege.util.Class.create(function()
+let Clock = function()
 {
-}, 'solfege.example.termClock.Clock');
-var proto = Clock.prototype;
+};
+let proto = Clock.prototype;
 
 /**
  * Character map
  *
  * @constant    {Map} solfege.example.termClock.Clock.CHARACTERS
  */
-var characters = new Map();
-solfege.util.Object.define(Clock, 'CHARACTERS', characters);
+let characters = new Map();
+Clock.CHARACTERS = characters;
 characters.set('0', ['███',
                      '█ █',
                      '█ █',
@@ -102,14 +103,13 @@ proto.timer;
  *
  * @param   {solfege.kernel.Application} application - Application instance
  */
-proto.setApplication = function*(application)
+proto.initialize = function*(application)
 {
     this.application = application;
 
     // Set listeners
-    var bindGenerator = solfege.util.Function.bindGenerator;
-    this.application.on(solfege.kernel.Application.EVENT_START, bindGenerator(this, this.onApplicationStart));
-    this.application.on(solfege.kernel.Application.EVENT_END, bindGenerator(this, this.onApplicationEnd));
+    this.application.on(solfege.Application.EVENT_START, GeneratorUtil.bindGenerator(this, this.onApplicationStart));
+    this.application.on(solfege.Application.EVENT_END, GeneratorUtil.bindGenerator(this, this.onApplicationEnd));
 };
 
 

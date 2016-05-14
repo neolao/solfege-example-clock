@@ -6,11 +6,11 @@
     "repository"    : "https://github.com/neolao/solfege-example-clock.git",
     "engines"       : 
     {
-        "node": ">= 0.11.11"
+        "node": ">= 6"
     },
     "dependencies"  : 
     {
-        "solfegejs"     : "1.3.*",
+        "solfegejs"     : "^2.0",
         "charm"         : "0.2.0"
     },
     "scripts": {

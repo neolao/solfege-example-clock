@@ -1,11 +1,11 @@
 var solfege = require('solfegejs');
 
 // Initialize the application
-var application = new solfege.kernel.Application(__dirname);
+var application = new solfege.Application;
 
-// Add the internal bundle
+// Add bundle
 var Clock = require('./bundles/term-clock/Clock');
-application.addBundle('clock', new Clock);
+application.addBundle(new Clock);
 
 // Start the application
 application.start();
