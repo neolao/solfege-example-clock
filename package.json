@@ -10,8 +10,9 @@
     },
     "dependencies"  : 
     {
-        "solfegejs"     : "^2.0",
-        "charm"         : "0.2.0"
+        "solfegejs"         : "^2.0",
+        "bind-generator"    : "^1.0.0",
+        "charm"             : "0.2.0"
     },
     "scripts": {
         "start": "node --harmony main.js"

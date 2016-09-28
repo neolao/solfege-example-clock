@@ -1,5 +1,5 @@
 const solfege = require("solfegejs");
-const GeneratorUtil = require("solfegejs/lib/utils/GeneratorUtil");
+const bindGenerator = require("bind-generator");
 
 /**
  * The class that display a clock
@@ -99,6 +99,16 @@ proto.timer;
 
 
 /**
+ * Get bundle path
+ *
+ * @return  {string}    Bundle path
+ */
+proto.getPath = function()
+{
+    return __dirname;
+};
+
+/**
  * Set the application
  *
  * @param   {solfege.kernel.Application} application - Application instance
@@ -108,8 +118,8 @@ proto.initialize = function*(application)
     this.application = application;
 
     // Set listeners
-    this.application.on(solfege.Application.EVENT_START, GeneratorUtil.bindGenerator(this, this.onApplicationStart));
-    this.application.on(solfege.Application.EVENT_END, GeneratorUtil.bindGenerator(this, this.onApplicationEnd));
+    this.application.on(solfege.Application.EVENT_START, bindGenerator(this, this.onApplicationStart));
+    this.application.on(solfege.Application.EVENT_END, bindGenerator(this, this.onApplicationEnd));
 };
 
 
